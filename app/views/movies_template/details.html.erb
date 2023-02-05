@@ -1,0 +1,27 @@
+<h1> Movie #<%= @url_num %> details </h1>
+
+<a href="/movies">Go back</a>
+
+<dt> Title </dt>
+<dd> <%= @the_movie.title %> </dd>
+
+<dt> Year </dt>
+<dd> <%= @the_movie.year %> </dd>
+
+<dt> Duration </dt>
+<dd> <%= @the_movie.duration %> </dd>
+
+<dt> Description </dt>
+<dd> <%= @the_movie.description %> </dd>
+
+<dt> Director </dt>
+<dd> <%= Director.all.where({ :id => @the_movie.director_id }).at(0).name%> </dd>
+
+<dt> Image </dt>
+<dd> <img src="http://robohash.org/<%= @the_movie.title %>"><a> </dd>
+
+<dt> Created at </dt>
+<dd> <%= time_ago_in_words(@the_movie.created_at) %> ago </dd>
+
+<dt> Updated at </dt>
+<dd> <%= time_ago_in_words(@the_movie.updated_at) %> ago </dd>

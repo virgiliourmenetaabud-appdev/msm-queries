@@ -1,0 +1,38 @@
+<h1> Director #<%= @url_num %> details </h1>
+
+<a href="/directors">Go back</a>
+
+<dt> Name </dt>
+<dd> <%= @the_director.name %> </dd>
+
+<dt> Dob </dt>
+<dd> <%= @the_director.dob %> </dd>
+
+<dt> Bio </dt>
+<dd> <%= @the_director.bio %> </dd>
+
+<dt> Image </dt>
+<dd> <img src="http://robohash.org/<%= @the_director.bio %>"><a> </dd>
+
+<dt> Created at </dt>
+<dd> <%= time_ago_in_words(@the_director.created_at) %> ago </dd>
+
+<dt> Updated at </dt>
+<dd> <%= time_ago_in_words(@the_director.updated_at) %> ago </dd>
+
+<h2>Filmography</h2>
+
+<table border="1">
+
+<% @films_by_director.each do |film| %>
+<tr>
+<td><%= film.id %></td>
+<td> <img src="http://robohash.org/<%= film.image %>"></td>
+<td> <%= film.title %></td>
+<td> <%= film.year %></td>
+<td> <%= @the_director.name %></td>
+<td> <a href="/movies/<%= film.id %>">Show details</a>
+</tr>
+<% end %>
+
+</table>
